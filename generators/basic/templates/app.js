@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app', [])
+angular.module('app', [<%- angularModules %>])
   .config(function(<% if (router === 'ngroute') { %>$routeProvider<% } if (router === 'uirouter') { %>$urlRouterProvider<% } %>, $locationProvider) {<% if (router === 'ngroute') { %>
     $routeProvider
       .otherwise({

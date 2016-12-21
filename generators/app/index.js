@@ -68,7 +68,10 @@ module.exports = bitmate.Base.extend({
         });
         if (this.props.router === 'uirouter') { bower.dependencies['angular-ui-router'] = '1.0.0-beta.1' }
         if (this.props.router === 'ngroute') { bower.dependencies['angular-route'] = '1.6.0' }
-        if (this.props.styling === 'bootstrap') { bower.dependencies['bootstrap'] = '3.3.7' }
+        if (this.props.styling === 'bootstrap') {
+            bower.dependencies['bootstrap'] = '3.3.4';
+            bower.dependencies['angular-bootstrap'] = '^2.3.1';
+        }
         this.mergeJson('bower.json', bower);
     },
 

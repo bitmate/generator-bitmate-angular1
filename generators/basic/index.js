@@ -3,8 +3,14 @@
 const bitmate = require('bitmate-generator');
 
 module.exports = bitmate.Base.extend({
-    configuring() {
-
+    configuring: {
+        ngModules: function() {
+            var angModules = [];
+            if(this.options.router === 'ngroute') angModules.push("'ngRoute'");
+            if(this.options.router === 'uirouter') angModules.push("'ui.router'");
+            if (this.options.styling === 'bootstrap') angModules.push("'ui.bootstrap'");
+            this.options.angularModules = '\n  ' + angModules.join(',\n  ') +'\n';
+        }
     },
 
     writing: {

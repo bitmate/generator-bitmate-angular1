@@ -53,5 +53,5 @@ test(`Add 'angular-router' to bower.json dependencies`, t => {
 test(`Add 'bootstrap' to bower.json dependencies`, t => {
     context.props = {styling: 'bootstrap'};
     TestUtils.call(context, 'configuring');
-    t.is(context.mergeJson['bower.json'].dependencies['bootstrap'], '3.3.7');
+    t.is(context.mergeJson['bower.json'].dependencies['bootstrap'], '3.3.4');
 });

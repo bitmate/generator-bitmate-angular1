@@ -30,7 +30,8 @@ test(`Call this.copyTemplate 7 times`, t => {
     TestUtils.call(context, 'writing.src', {
         framework: 'angular1',
         css: 'css',
-        router: 'uirouter'
+        router: 'uirouter',
+        angularModules: ''
     });
     expect(spy).to.have.been.called.exactly(files.length);
     files.forEach(file => t.true(context.copyTemplate['client/app/' + file].length > 0));
