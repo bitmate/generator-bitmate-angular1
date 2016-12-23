@@ -5,29 +5,18 @@ const bitmate = require('bitmate-generator');
 module.exports = bitmate.Base.extend({
     prompting: {
         bitmate() {
+            this.options.server = (this.options.server) ? this.options.server : 'none';
             this.options.client = 'angular1';
-            return this.clientPrompts();
+            return this.bitmatePrompts();
         },
 
         angularOptions() {
             // Can add more prompts that are angular specific here...
-            this.option('css', {type: String, required: true});
             this.option('router', {type: String, required: true});
             this.option('styling', {type: String, required: false});
 
 
             const prompts = [{
-                when: !this.options.css,
-                type: 'list',
-                name: 'css',
-                message: 'Which CSS preprocessor do you want?',
-                choices: [
-                    {name: 'SASS', value: 'scss'},
-                    {name: 'Stylus', value: 'styl'},
-                    {name: 'Less', value: 'less'},
-                    {name: 'CSS', value: 'css'},
-                ]
-            },{
                 when: !this.options.router,
                 type: 'list',
                 name: 'router',
@@ -77,7 +66,8 @@ module.exports = bitmate.Base.extend({
 
     composing() {
         const options = {
-            framework: this.options.client,
+            framework: this.props.client,
+            html: this.props.html,
             css: this.props.css,
             router: this.props.router,
             styling: this.props.styling,

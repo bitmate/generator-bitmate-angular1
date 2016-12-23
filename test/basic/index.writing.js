@@ -31,6 +31,7 @@ test(`Call this.copyTemplate 7 times`, t => {
         framework: 'angular1',
         css: 'css',
         router: 'uirouter',
+        styling: 'bootstrap',
         angularModules: ''
     });
     expect(spy).to.have.been.called.exactly(files.length);
