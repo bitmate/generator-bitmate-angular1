@@ -7,8 +7,17 @@
     "test": "gulp test",
     "prepublish": "gulp prepublish"
   },
+  "engines": {
+    "node": ">=6.0.0",
+    "npm": ">=3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oligibson/generator-bitmate-angular1.git"
+  },
   "author": "BitMate",
-  "license": "ISC",
+  "license": "UNLICENSED",
+  "private": true,
   "dependencies": {
     "bitmate-generator": "file:../bitmate-generator"
   },
@@ -17,7 +26,12 @@
     "chai": "^3.5.0",
     "chai-spies": "^0.7.1",
     "cross-spawn": "^5.0.0",
+    "eslint": "^3.2.2",
+    "eslint-config-xo-space": "^0.12.0",
+    "eslint-plugin-babel": "^3.2.0",
     "gulp": "gulpjs/gulp#4.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
     "gulp-nsp": "^2.3.0",
     "nyc": "^8.4.0"
   },
@@ -33,5 +47,8 @@
     "exclude": [
       "generators/**/templates/**"
     ]
+  },
+  "eslintConfig": {
+    "extends": "xo-space/esnext"
   }
 }
