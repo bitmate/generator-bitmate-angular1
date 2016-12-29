@@ -1,15 +1,15 @@
 'use strict';
 
 angular.module('app')
-  <% if (router === 'ngroute') { %>.config(function($routeProvider) {
+  <% if (router === 'ngroute') { %>.config($routeProvider =>
     $routeProvider
       .when('/', {
         template: '<main></main>'
-      });
-  });<% } %><% if (router === 'uirouter') { %>.config(function($stateProvider) {
+      })
+  );<% } %><% if (router === 'uirouter') { %>.config($stateProvider =>
     $stateProvider
       .state('main', {
         url: '/',
         template: '<main></main>'
-      });
-  });<% } %>
+      })
+  );<% } %>
