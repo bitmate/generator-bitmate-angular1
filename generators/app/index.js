@@ -72,6 +72,7 @@ module.exports = bitmate.Base.extend({
       framework: this.props.client,
       html: this.props.html,
       css: this.props.css,
+      js: this.props.js,
       router: this.props.router,
       styling: this.props.styling,
       skipInstall: this.props.skipInstall,

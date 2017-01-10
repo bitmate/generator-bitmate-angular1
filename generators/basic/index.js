@@ -22,17 +22,17 @@ module.exports = bitmate.Base.extend({
   writing: {
     src() {
       const files = [
-        'app/app.js',
-        'app/app.css',
-        'app/main/main.controller.js',
-        'app/main/main.controller.spec.js',
-        'app/main/main.css',
-        'app/main/main.js',
-        'app/main/main.html'
+        'client/app/app.js',
+        'client/app/app.css',
+        'client/app/main/main.controller.js',
+        'client/app/main/main.controller.spec.js',
+        'client/app/main/main.css',
+        'client/app/main/main.js',
+        'client/app/main/main.html'
       ];
       const options = this.options;
       files.forEach(file => {
-        this.copyTemplate(file, `client/${file}`, options);
+        this.copyTemplate(file, file, options);
       });
     }
   }
