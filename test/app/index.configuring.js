@@ -56,3 +56,9 @@ test(`Add 'bootstrap' to bower.json dependencies`, t => {
   TestUtils.call(context, 'configuring');
   t.is(context.mergeJson['bower.json'].dependencies.bootstrap, '3.3.4');
 });
+
+test(`Add 'bootstrap-sass' to bower.json dependencies is css is 'scss'`, t => {
+  context.props = {styling: 'bootstrap', css: 'scss'};
+  TestUtils.call(context, 'configuring');
+  t.is(context.mergeJson['bower.json'].dependencies['bootstrap-sass-official'], '3.3.4');
+});

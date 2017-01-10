@@ -61,6 +61,9 @@ module.exports = bitmate.Base.extend({
       bower.dependencies['angular-route'] = '1.6.0';
     }
     if (this.props.styling === 'bootstrap') {
+      if (this.props.css === 'scss') {
+        bower.dependencies['bootstrap-sass-official'] = '3.3.4';
+      }
       bower.dependencies.bootstrap = '3.3.4';
       bower.dependencies['angular-bootstrap'] = '^2.3.1';
     }
