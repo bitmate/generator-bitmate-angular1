@@ -44,7 +44,7 @@ module.exports = bitmate.Base.extend({
 
   configuring() {
     this.config.set('props', this.props);
-    const bower = Object.assign({}, {
+    const pkg = Object.assign({}, {
       name: "app",
       version: "0.0.0",
       dependencies: {
@@ -55,19 +55,25 @@ module.exports = bitmate.Base.extend({
       }
     });
     if (this.props.router === 'uirouter') {
-      bower.dependencies['angular-ui-router'] = '1.0.0-beta.1';
+      pkg.dependencies['angular-ui-router'] = '1.0.0-beta.1';
     }
     if (this.props.router === 'ngroute') {
-      bower.dependencies['angular-route'] = '1.6.0';
+      pkg.dependencies['angular-route'] = '1.6.0';
     }
     if (this.props.styling === 'bootstrap') {
       if (this.props.css === 'scss') {
-        bower.dependencies['bootstrap-sass-official'] = '3.3.4';
+        pkg.dependencies['bootstrap-sass-official'] = '3.3.4';
       }
-      bower.dependencies.bootstrap = '3.3.4';
-      bower.dependencies['angular-bootstrap'] = '^2.3.1';
+      pkg.dependencies.bootstrap = '3.3.4';
+      if (this.props.module === 'bower') {
+        pkg.dependencies['angular-bootstrap'] = '^2.3.1';
+      }
+      pkg.dependencies['angular-bootstrap-npm'] = '^0.14.3';
     }
-    this.mergeJson('bower.json', bower);
+    if (this.props.module === 'bower') {
+      this.mergeJson('bower.json', pkg);
+    }
+    this.mergeJson('package.json', pkg);
   },
 
   composing() {
