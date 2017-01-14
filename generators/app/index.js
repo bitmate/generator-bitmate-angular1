@@ -61,24 +61,30 @@ module.exports = bitmate.Base.extend({
       pkg.dependencies['angular-route'] = '1.6.0';
     }
     if (this.props.styling === 'bootstrap') {
+      if (this.props.modules !== 'bower') {
+        pkg.dependencies.jquery = '^3.1.1';
+      }
       if (this.props.css === 'scss') {
         pkg.dependencies['bootstrap-sass-official'] = '3.3.4';
       }
       pkg.dependencies.bootstrap = '3.3.4';
-      if (this.props.module === 'bower') {
+      if (this.props.modules === 'bower') {
         pkg.dependencies['angular-bootstrap'] = '^2.3.1';
+      } else {
+        pkg.dependencies['angular-bootstrap-npm'] = '^0.14.3';
       }
-      pkg.dependencies['angular-bootstrap-npm'] = '^0.14.3';
     }
-    if (this.props.module === 'bower') {
+    if (this.props.modules === 'bower') {
       this.mergeJson('bower.json', pkg);
+    } else {
+      this.mergeJson('package.json', pkg);
     }
-    this.mergeJson('package.json', pkg);
   },
 
   composing() {
     const options = {
-      framework: this.props.client,
+      client: this.props.client,
+      modules: this.props.modules,
       html: this.props.html,
       css: this.props.css,
       js: this.props.js,
@@ -88,9 +94,7 @@ module.exports = bitmate.Base.extend({
       skipCache: this.props.skipCache
     };
 
-    this.composeWith(`bitmate-angular1:basic`, {options}, {
-      local: require.resolve(`../basic`)
-    });
+    this.composeWith(require.resolve(`../basic/${this.props.modules === 'bower' ? 'bower' : 'modules'}`), {options});
   },
 
   writing() {
@@ -104,5 +108,9 @@ module.exports = bitmate.Base.extend({
     files.forEach(file => {
       this.copyTemplate(file, file, this.props);
     });
+
+    if (this.props.router === 'uirouter') {
+      this.copyTemplate('client/routes.js', 'client/routes.js', this.props);
+    }
   }
 });

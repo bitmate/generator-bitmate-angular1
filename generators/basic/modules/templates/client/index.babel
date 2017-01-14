@@ -1,0 +1,27 @@
+'use strict';
+import angular from 'angular';
+
+import {main} from './app/main.controller';
+<% if (router === 'uirouter') { -%>
+import 'angular-ui-router';
+import routesConfig from './routes';
+<% } -%>
+<% if (styling === 'bootstrap') { -%>
+import 'jquery';
+import 'angular-bootstrap-npm';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import 'bootstrap/dist/css/bootstrap.css';
+<% } -%>
+<% if (modules === 'webpack') { -%>
+import './index.<%- css %>';
+<% } -%>
+export const app = 'app';
+
+angular
+<% if (router === 'uirouter') { -%>
+  .module(app, [<%- angularModules %>])
+  .config(routesConfig)
+<% } else { -%>
+  .module(app, [<%- angularModules %>])
+<% } -%>
+  .component('app', main);

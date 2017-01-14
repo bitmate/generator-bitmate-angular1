@@ -10,30 +10,29 @@ const TestUtils = require('bitmate-generator').TestUtils;
 let context;
 
 const files = [
-  'app.js',
-  'app.css',
-  'main/main.controller.js',
-  'main/main.controller.spec.js',
-  'main/main.css',
-  'main/main.js',
-  'main/main.html'
+  'client/index.js',
+  'client/index.css',
+  'client/app/main.controller.js',
+  'client/app/main.controller.spec.js',
+  'client/app/main.css',
+  'client/app/main.html'
 ];
 
 test.before(() => {
-  context = TestUtils.mock('basic');
-  require('../../generators/basic');
-  process.chdir('../../');
+  context = TestUtils.mock('basic/bower');
+  require('../../../generators/basic/bower');
+  process.chdir('../../../');
 });
 
-test(`Call this.copyTemplate 7 times`, t => {
+test(`Call this.copyTemplate 6 times`, t => {
   const spy = chai.spy.on(context, 'copyTemplate');
   TestUtils.call(context, 'writing.src', {
-    framework: 'angular1',
+    client: 'angular1',
     css: 'css',
     router: 'uirouter',
     styling: 'bootstrap',
     angularModules: ''
   });
   expect(spy).to.have.been.called.exactly(files.length);
-  files.forEach(file => t.true(context.copyTemplate[`client/app/${file}`].length > 0));
+  files.forEach(file => t.true(context.copyTemplate[file].length > 0));
 });

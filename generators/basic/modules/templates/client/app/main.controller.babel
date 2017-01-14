@@ -1,0 +1,11 @@
+'use strict';
+export const main = {
+<% if (modules === 'systemjs') { -%>
+  templateUrl: 'app/main.html',
+<% } else { -%>
+  template: require('./main.html'),
+<% } -%>
+  controller() {
+    this.awesomeThings = [];
+  }
+};

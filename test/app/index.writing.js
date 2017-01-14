@@ -34,11 +34,19 @@ test(`Write 'index.html'`, t => {
   t.true(context.copyTemplate['client/index.html'].length > 0);
 });
 
+test(`Write 'routes.js'`, t => {
+  context.props = {
+    router: 'uirouter',
+    modules: 'bower'
+  };
+  TestUtils.call(context, 'writing');
+  t.true(context.copyTemplate['client/routes.js'].length > 0);
+});
+
 test(`Call this.copyTemplate 4 times`, t => {
+  context.props = {};
   const spy = chai.spy.on(context, 'copyTemplate');
-  TestUtils.call(context, 'writing', {
-    router: 'uirouter'
-  });
+  TestUtils.call(context, 'writing');
   expect(spy).to.have.been.called.exactly(files.length);
   files.forEach(file => t.true(context.copyTemplate[file].length > 0));
 });

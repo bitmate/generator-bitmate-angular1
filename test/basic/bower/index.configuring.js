@@ -10,7 +10,7 @@ let context;
 
 test.before(() => {
   context = TestUtils.mock('basic');
-  require('../../generators/basic/index');
+  require('../../../generators/basic/bower/index');
 });
 
 test('Set angularModules to ui.bootstrap', t => {
@@ -18,7 +18,7 @@ test('Set angularModules to ui.bootstrap', t => {
     styling: 'bootstrap'
   };
   TestUtils.call(context, 'configuring.ngModules');
-  t.is(context.options.angularModules, "\n  'ui.bootstrap'\n");
+  t.is(context.options.angularModules, "'ui.bootstrap'");
 });
 
 test('Set angularModules to ngRoute', t => {
@@ -26,7 +26,7 @@ test('Set angularModules to ngRoute', t => {
     router: 'ngroute'
   };
   TestUtils.call(context, 'configuring.ngModules');
-  t.is(context.options.angularModules, "\n  'ngRoute'\n");
+  t.is(context.options.angularModules, "'ngRoute'");
 });
 
 test('Set angularModules to ui.router', t => {
@@ -34,7 +34,7 @@ test('Set angularModules to ui.router', t => {
     router: 'uirouter'
   };
   TestUtils.call(context, 'configuring.ngModules');
-  t.is(context.options.angularModules, "\n  'ui.router'\n");
+  t.is(context.options.angularModules, "'ui.router'");
 });
 
 test('Set angularModules to ui.router & ui.bootstrap', t => {
@@ -43,6 +43,6 @@ test('Set angularModules to ui.router & ui.bootstrap', t => {
     router: 'uirouter'
   };
   TestUtils.call(context, 'configuring.ngModules');
-  t.is(context.options.angularModules, "\n  'ui.router',\n  'ui.bootstrap'\n");
+  t.is(context.options.angularModules, "'ui.router', 'ui.bootstrap'");
 });
 
