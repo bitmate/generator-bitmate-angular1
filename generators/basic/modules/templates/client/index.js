@@ -7,7 +7,7 @@ var routesConfig = require('./routes');
 <% } -%>
 <% if (styling === 'bootstrap') { -%>
 require('jquery');
-require('angular-bootstrap-npm');
+require('angular-ui-bootstrap');
 require('bootstrap/dist/js/bootstrap');
 require('bootstrap/dist/css/bootstrap.css');
 <% } -%>

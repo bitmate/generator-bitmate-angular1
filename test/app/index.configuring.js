@@ -35,8 +35,8 @@ test('Call this.config.set twice', () => {
 test(`Add angular deps to bower.json dependencies`, t => {
   context.props = {modules: 'bower'};
   TestUtils.call(context, 'configuring');
-  t.is(context.mergeJson['bower.json'].dependencies.angular, '^1.5.0');
-  t.is(context.mergeJson['bower.json'].devDependencies['angular-mocks'], '^1.5.0');
+  t.is(context.mergeJson['bower.json'].dependencies.angular, '1.6.2');
+  t.is(context.mergeJson['bower.json'].devDependencies['angular-mocks'], '1.6.2');
 });
 
 test(`Add 'angular-ui-router' to bower.json dependencies`, t => {
@@ -69,8 +69,8 @@ test(`Add 'jQuery' to package.json dependencies`, t => {
   t.is(context.mergeJson['package.json'].dependencies.jquery, '^3.1.1');
 });
 
-test(`Add 'angular-bootstrap-npm' to package.json dependencies`, t => {
+test(`Add 'angular-ui-bootstrap' to package.json dependencies`, t => {
   context.props = {styling: 'bootstrap', modules: 'webpack'};
   TestUtils.call(context, 'configuring');
-  t.is(context.mergeJson['package.json'].dependencies['angular-bootstrap-npm'], '^0.14.3');
+  t.is(context.mergeJson['package.json'].dependencies['angular-ui-bootstrap'], '2.5.0');
 });

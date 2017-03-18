@@ -48,10 +48,10 @@ module.exports = bitmate.Base.extend({
       name: "app",
       version: "0.0.0",
       dependencies: {
-        angular: '^1.5.0'
+        angular: '1.6.2'
       },
       devDependencies: {
-        'angular-mocks': '^1.5.0'
+        'angular-mocks': '1.6.2'
       }
     });
     if (this.props.router === 'uirouter') {
@@ -71,7 +71,7 @@ module.exports = bitmate.Base.extend({
       if (this.props.modules === 'bower') {
         pkg.dependencies['angular-bootstrap'] = '^2.3.1';
       } else {
-        pkg.dependencies['angular-bootstrap-npm'] = '^0.14.3';
+        pkg.dependencies['angular-ui-bootstrap'] = '2.5.0';
       }
     }
     if (this.props.modules === 'bower') {

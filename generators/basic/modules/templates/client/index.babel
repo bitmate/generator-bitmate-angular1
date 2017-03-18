@@ -8,7 +8,7 @@ import routesConfig from './routes';
 <% } -%>
 <% if (styling === 'bootstrap') { -%>
 import 'jquery';
-import 'angular-bootstrap-npm';
+import 'angular-ui-bootstrap';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.css';
 <% } -%>
