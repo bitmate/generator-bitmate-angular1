@@ -2,7 +2,6 @@
 
 const test = require('ava');
 const chai = require('chai');
-const expect = chai.expect;
 const spies = require('chai-spies');
 chai.use(spies);
 const TestUtils = require('bitmate-generator').TestUtils;
@@ -16,20 +15,6 @@ test.before(() => {
 
 test.beforeEach(() => {
   context.mergeJson['bower.json'] = {};
-  context.config = {
-    set: () => {
-    }
-  };
-});
-
-test('Call this.config.set twice', () => {
-  context.config = {
-    set: () => {}
-  };
-  const spy = chai.spy.on(context.config, 'set');
-  TestUtils.call(context, 'configuring');
-  expect(spy).to.have.been.called.once();
-  expect(spy).to.have.been.called.with('props');
 });
 
 test(`Add angular deps to bower.json dependencies`, t => {
@@ -48,7 +33,7 @@ test(`Add 'angular-ui-router' to bower.json dependencies`, t => {
 test(`Add 'angular-router' to bower.json dependencies`, t => {
   context.props = {router: 'ngroute', modules: 'bower'};
   TestUtils.call(context, 'configuring');
-  t.is(context.mergeJson['bower.json'].dependencies['angular-route'], '1.6.0');
+  t.is(context.mergeJson['bower.json'].dependencies['angular-route'], '1.6.2');
 });
 
 test(`Add 'bootstrap' to bower.json dependencies`, t => {

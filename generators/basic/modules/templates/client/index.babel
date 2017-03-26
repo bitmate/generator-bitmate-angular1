@@ -6,6 +6,9 @@ import {main} from './app/main.controller';
 import 'angular-ui-router';
 import routesConfig from './routes';
 <% } -%>
+<% if (router === 'ngroute') { -%>
+import 'angular-route';
+<% } -%>
 <% if (styling === 'bootstrap') { -%>
 import 'jquery';
 import 'angular-ui-bootstrap';
@@ -14,6 +17,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 <% } -%>
 <% if (modules === 'webpack') { -%>
 import './index.<%- css %>';
+<% if (css === 'css') { -%>
+import './app/main.css';
+<% } -%>
 <% } -%>
 export const app = 'app';
 

@@ -43,7 +43,6 @@ module.exports = bitmate.Base.extend({
   },
 
   configuring() {
-    this.config.set('props', this.props);
     const pkg = Object.assign({}, {
       name: "app",
       version: "0.0.0",
@@ -58,7 +57,7 @@ module.exports = bitmate.Base.extend({
       pkg.dependencies['angular-ui-router'] = '1.0.0-beta.1';
     }
     if (this.props.router === 'ngroute') {
-      pkg.dependencies['angular-route'] = '1.6.0';
+      pkg.dependencies['angular-route'] = '1.6.2';
     }
     if (this.props.styling === 'bootstrap') {
       if (this.props.modules !== 'bower') {

@@ -5,6 +5,9 @@ var main = require('./app/main.controller');
 require('angular-ui-router');
 var routesConfig = require('./routes');
 <% } -%>
+<% if (router === 'ngroute') { -%>
+require('angular-route');
+<% } -%>
 <% if (styling === 'bootstrap') { -%>
 require('jquery');
 require('angular-ui-bootstrap');
@@ -14,6 +17,9 @@ require('bootstrap/dist/css/bootstrap.css');
 
 <% if (modules === 'webpack') { -%>
 require('./index.<%- css %>');
+<% if (css === 'css') { -%>
+require('./app/main.css');
+<% } -%>
 <% } -%>
 var app = 'app';
 module.exports = app;
