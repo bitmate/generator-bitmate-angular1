@@ -63,8 +63,8 @@ module.exports = bitmate.Base.extend({
       if (this.props.modules !== 'bower') {
         pkg.dependencies.jquery = '^3.1.1';
       }
-      if (this.props.css === 'scss') {
-        pkg.dependencies['bootstrap-sass-official'] = '3.3.4';
+      if (this.props.css === 'scss' && this.props.modules === 'bower') {
+        pkg.dependencies['bootstrap-sass'] = '3.3.4';
       }
       pkg.dependencies.bootstrap = '3.3.4';
       if (this.props.modules === 'bower') {
