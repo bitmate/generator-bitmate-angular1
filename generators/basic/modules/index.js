@@ -1,4 +1,4 @@
-'use strict';
+/* eslint quotes: 0 */  // --> OFF
 
 const bitmate = require('@oligibson/bitmate-generator');
 

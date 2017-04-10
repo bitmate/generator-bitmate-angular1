@@ -27,7 +27,7 @@ test(`Add angular deps to bower.json dependencies`, t => {
 test(`Add 'angular-ui-router' to bower.json dependencies`, t => {
   context.props = {router: 'uirouter', modules: 'bower'};
   TestUtils.call(context, 'configuring');
-  t.is(context.mergeJson['bower.json'].dependencies['angular-ui-router'], '1.0.0-beta.1');
+  t.is(context.mergeJson['bower.json'].dependencies['angular-ui-router'], '1.0.0-beta.3');
 });
 
 test(`Add 'angular-router' to bower.json dependencies`, t => {
@@ -39,19 +39,19 @@ test(`Add 'angular-router' to bower.json dependencies`, t => {
 test(`Add 'bootstrap' to bower.json dependencies`, t => {
   context.props = {styling: 'bootstrap', modules: 'bower'};
   TestUtils.call(context, 'configuring');
-  t.is(context.mergeJson['bower.json'].dependencies.bootstrap, '3.3.4');
+  t.is(context.mergeJson['bower.json'].dependencies.bootstrap, '3.3.7');
 });
 
 test(`Add 'bootstrap-sass' to bower.json dependencies is css is 'scss'`, t => {
   context.props = {styling: 'bootstrap', css: 'scss', modules: 'bower'};
   TestUtils.call(context, 'configuring');
-  t.is(context.mergeJson['bower.json'].dependencies['bootstrap-sass'], '3.3.4');
+  t.is(context.mergeJson['bower.json'].dependencies['bootstrap-sass'], '3.3.7');
 });
 
 test(`Add 'jQuery' to package.json dependencies`, t => {
   context.props = {styling: 'bootstrap', modules: 'webpack'};
   TestUtils.call(context, 'configuring');
-  t.is(context.mergeJson['package.json'].dependencies.jquery, '^3.1.1');
+  t.is(context.mergeJson['package.json'].dependencies.jquery, '3.2.1');
 });
 
 test(`Add 'angular-ui-bootstrap' to package.json dependencies`, t => {

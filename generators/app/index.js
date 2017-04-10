@@ -44,8 +44,8 @@ module.exports = bitmate.Base.extend({
 
   configuring() {
     const pkg = Object.assign({}, {
-      name: "app",
-      version: "0.0.0",
+      name: 'app',
+      version: '0.0.0',
       dependencies: {
         angular: '1.6.2'
       },
@@ -54,21 +54,21 @@ module.exports = bitmate.Base.extend({
       }
     });
     if (this.props.router === 'uirouter') {
-      pkg.dependencies['angular-ui-router'] = '1.0.0-beta.1';
+      pkg.dependencies['angular-ui-router'] = '1.0.0-beta.3';
     }
     if (this.props.router === 'ngroute') {
       pkg.dependencies['angular-route'] = '1.6.2';
     }
     if (this.props.styling === 'bootstrap') {
       if (this.props.modules !== 'bower') {
-        pkg.dependencies.jquery = '^3.1.1';
+        pkg.dependencies.jquery = '3.2.1';
       }
       if (this.props.css === 'scss' && this.props.modules === 'bower') {
-        pkg.dependencies['bootstrap-sass'] = '3.3.4';
+        pkg.dependencies['bootstrap-sass'] = '3.3.7';
       }
-      pkg.dependencies.bootstrap = '3.3.4';
+      pkg.dependencies.bootstrap = '3.3.7';
       if (this.props.modules === 'bower') {
-        pkg.dependencies['angular-bootstrap'] = '^2.3.1';
+        pkg.dependencies['angular-bootstrap'] = '2.5.0';
       } else {
         pkg.dependencies['angular-ui-bootstrap'] = '2.5.0';
       }

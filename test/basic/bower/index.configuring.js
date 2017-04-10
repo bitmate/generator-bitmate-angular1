@@ -1,4 +1,4 @@
-'use strict';
+/* eslint quotes: 0 */  // --> OFF
 
 const test = require('ava');
 const chai = require('chai');
